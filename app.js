@@ -34,17 +34,28 @@ const inizioGioco = ()=>{
 
     contenitore.innerHTML = "";
 
+    // creo funzione che permette l'iterazione con le celle
+
+    let k = 0;
+    
     function grigliaIterazione(event){
         const elementoGriglia = event.target;
         console.log(event.target.innerHTML);
+        
+
+        // controllo se ho colpito la bomba oppure no
 
         if(bombe.includes(parseInt(elementoGriglia.innerHTML) )){
             elementoGriglia.classList.add("bomba");
-            alert("Hai perso la partita");
+            alert(`Hai perso la partita. Hai totalizzato ${k} punti `);
             contenitore.removeEventListener("click", grigliaIterazione);
         }else{
             elementoGriglia.classList.add("quad_click");
+            k++;
+        }
 
+        if(k== griglia-nBombe){
+            alert(`Complimenti hai vinto!! hai totalizzato ${k} punti!`)
         }
         
     }
@@ -52,7 +63,7 @@ const inizioGioco = ()=>{
     contenitore.addEventListener("click", grigliaIterazione);
     
     
-    
+    // genero quadratini
 
     for(let i=0; i<griglia; i++){
         const cella = document.createElement("div");
@@ -68,6 +79,8 @@ const inizioGioco = ()=>{
         //     cella.classList.add("quad_click");
         // })
     }
+
+    // genero numeri random e gli inserisco in array di dimensioni massime dichiarate
 
     function getRandomInt(min, max) {
         min = Math.ceil(min);
