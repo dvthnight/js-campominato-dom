@@ -34,12 +34,24 @@ const inizioGioco = ()=>{
 
     contenitore.innerHTML = "";
 
-    function grigliaInterazione(event){
+    function grigliaIterazione(event){
         const elementoGriglia = event.target;
-        elementoGriglia.classList.add("quad_click");
+        console.log(event.target.innerHTML);
+
+        if(bombe.includes(parseInt(elementoGriglia.innerHTML) )){
+            elementoGriglia.classList.add("bomba");
+            alert("Hai perso la partita");
+        }else{
+            elementoGriglia.classList.add("quad_click");
+
+        }
+        
     }
 
-    contenitore.addEventListener("click", grigliaInterazione);
+    contenitore.addEventListener("click", grigliaIterazione);
+    
+    
+    
 
     for(let i=0; i<griglia; i++){
         const cella = document.createElement("div");
@@ -48,7 +60,7 @@ const inizioGioco = ()=>{
         cella.append(i+1);
         contenitore.append(cella);
 
-        
+        // console.log(cella.innerHTML);
           
 
         // cella.addEventListener("click", function(){
@@ -62,7 +74,7 @@ const inizioGioco = ()=>{
         return Math.floor(Math.random() * (max - min) + min); 
       }
 
-      const bombe = [];
+      let bombe = [];
 
       const nBombe = 16;
 
@@ -75,14 +87,14 @@ const inizioGioco = ()=>{
           }
       }
 
-      console.log(bombe);
+    console.log(bombe);
 
+    
 
 }
 
 buttonPlay.addEventListener("click",inizioGioco);
     
-
 
 
 
