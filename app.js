@@ -34,6 +34,14 @@ const inizioGioco = ()=>{
 
     contenitore.innerHTML = "";
 
+    function grigliaInterazione(event){
+        console.log(event.target);
+        const elementoGriglia = event.target;
+        elementoGriglia.classList.add("quad_click");
+    }
+
+    contenitore.addEventListener("click", grigliaInterazione);
+
     for(let i=0; i<griglia; i++){
         const cella = document.createElement("div");
         cella.style.width = `calc(100% / ${colonna})`;
@@ -41,9 +49,9 @@ const inizioGioco = ()=>{
         cella.append(i+1);
         contenitore.append(cella);
 
-        cella.addEventListener("click", function(){
-            cella.classList.add("quad_click");
-        })
+        // cella.addEventListener("click", function(){
+        //     cella.classList.add("quad_click");
+        // })
     }
 
 
