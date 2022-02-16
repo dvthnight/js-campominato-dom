@@ -35,7 +35,6 @@ const inizioGioco = ()=>{
     contenitore.innerHTML = "";
 
     function grigliaInterazione(event){
-        console.log(event.target);
         const elementoGriglia = event.target;
         elementoGriglia.classList.add("quad_click");
     }
@@ -49,16 +48,39 @@ const inizioGioco = ()=>{
         cella.append(i+1);
         contenitore.append(cella);
 
+        
+          
+
         // cella.addEventListener("click", function(){
         //     cella.classList.add("quad_click");
         // })
     }
 
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); 
+      }
+
+      const bombe = [];
+
+      const nBombe = 16;
+
+      for(let i=0; i<nBombe; i++){
+          const nRandom = getRandomInt(1,griglia);
+          if(bombe.includes(nRandom)==false){
+              bombe[i]=nRandom;
+          } else{
+              i--;
+          }
+      }
+
+      console.log(bombe);
 
 
 }
 
-buttonPlay.addEventListener("click",inizioGioco)
+buttonPlay.addEventListener("click",inizioGioco);
     
 
 
