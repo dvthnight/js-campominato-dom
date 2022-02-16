@@ -41,6 +41,7 @@ const inizioGioco = ()=>{
         if(bombe.includes(parseInt(elementoGriglia.innerHTML) )){
             elementoGriglia.classList.add("bomba");
             alert("Hai perso la partita");
+            contenitore.removeEventListener("click", grigliaIterazione);
         }else{
             elementoGriglia.classList.add("quad_click");
 
