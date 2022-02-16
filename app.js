@@ -32,6 +32,8 @@ const inizioGioco = ()=>{
     const contenitore = document.querySelector(".container");
     
 
+    contenitore.innerHTML = "";
+
     for(let i=0; i<griglia; i++){
         const cella = document.createElement("div");
         cella.style.width = `calc(100% / ${colonna})`;
