@@ -2,7 +2,7 @@ const buttonPlay = document.getElementById("play");
 const difficoltà = document.getElementById("difficoltà");
 
 
-buttonPlay.addEventListener("click",function(){
+const inizioGioco = ()=>{
     const scelta = difficoltà.value;
     console.log(scelta);
 
@@ -11,18 +11,18 @@ buttonPlay.addEventListener("click",function(){
 
     switch (scelta) {
         case "1":
-            riga = 10;
-            colonna = 10;
+            riga = colonna = 10;
+            
             break;
     
         case "2":
-            riga = 9;
-            colonna = 9;
+            riga = colonna = 9;
+            
             break;
 
         case "3":
-            riga = 7;
-            colonna = 7;
+            riga = colonna = 7;
+            
     }
 
     let griglia = colonna * riga;
@@ -46,7 +46,12 @@ buttonPlay.addEventListener("click",function(){
 
 
 
-})
+}
+
+buttonPlay.addEventListener("click",inizioGioco)
+    
+
+
 
 
 function refresh(){
